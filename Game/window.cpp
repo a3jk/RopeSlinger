@@ -10,10 +10,20 @@ Window::Window(const std::string _title, int _width, int _height)
 	if (!Init())
 	{
 		std::cerr << "Initialization failed with SDL error code: " << SDL_Error;
+		isClosed = true;
 	}
 	else
 	{
 		isClosed = false;
+		SetBackground(0, 0, 25, 255);
+		SDL_Rect rect
+		{
+			rect.x = 150,
+			rect.y = 150,
+			rect.h = 150,
+			rect.w = 150
+		};
+		DrawRect(rect, 255, 0, 0, 255);
 	}
 }
 
@@ -49,29 +59,10 @@ bool Window::Init()
 	return true;
 }
 
-void Window::PollEvent()
+void Window::PollEvents()
 {
-	if (SDL_PollEvent(&event))
-	{
-		switch (event.type)
-		{
-		case SDL_QUIT:
-			isClosed = true;
-			break;
-		case SDL_KEYDOWN:
-			switch (event.key.keysym.sym)
-			{
-			case SDLK_ESCAPE:
-				isClosed = true;
-				break;
-			default:
-				break;
-			}
-			break;
-		default:
-			break;
-		}
-	}
+	event.PollEvent();
+	isClosed = event.IsClosed();
 }
 
 bool Window::IsClosed()
@@ -79,7 +70,22 @@ bool Window::IsClosed()
 	return isClosed;
 }
 
-void * Window::GetRenderer()
+void Window::DrawRect(SDL_Rect _rect, uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a)
 {
-	return renderer;
+	SDL_SetRenderDrawColor(renderer, _r, _g, _b, _a);
+	SDL_RenderFillRect(renderer, &_rect);
+	SDL_RenderPresent(renderer);
 }
+
+void Window::SetBackground(uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a)
+{
+	SDL_SetRenderDrawColor(renderer, _r, _g, _b, _a);
+	SDL_RenderClear(renderer);
+	SDL_RenderPresent(renderer);
+}
+
+Event * Window::GetEvent()
+{
+	return &event;
+}
+

@@ -30,6 +30,10 @@
 *.exe
 *.out
 *.app
+*.vcxproj
+*.vcxproj.filters
 
 # Folders
 /.vs
+/Game/x64/*
+/x64/*
