@@ -1,5 +1,6 @@
-#include "window.h"
+#include "Window.h"
 #include <iostream>
+#include <functional>
 
 Window::Window(const std::string _title, int _width, int _height)
 {

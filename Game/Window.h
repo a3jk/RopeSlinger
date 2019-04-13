@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <SDL.h>
-#include "event.h"
+#include "Event.h"
 
 class Window
 {
@@ -14,7 +14,6 @@ public:
 	void DrawRect(SDL_Rect _rect, uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a);
 	void SetBackground(uint8_t _r, uint8_t _g, uint8_t _b, uint8_t _a);
 	Event* GetEvent();
-
 private:
 	bool Init();
 	bool isClosed;
