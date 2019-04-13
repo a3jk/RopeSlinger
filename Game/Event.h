@@ -1,12 +1,6 @@
 #pragma once
 #include <SDL_events.h>
-
-
-struct MouseData
-{
-	int x;
-	int y;
-};
+#include "GameUtilities.h"
 
 class Event
 {
@@ -15,9 +9,9 @@ public:
 	~Event();
 	void PollEvent();
 	int IsClosed();
-	MouseData GetMousePos();
+	Vector2 GetMousePos();
 private:
-	MouseData mouse;
+	Vector2 mouse;
 	SDL_Event event;
 	bool isClosed = false;
 };

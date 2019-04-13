@@ -31,7 +31,7 @@ void Event::PollEvent()
 	}
 }
 
-MouseData Event::GetMousePos()
+Vector2 Event::GetMousePos()
 {
 	return mouse;
 }
