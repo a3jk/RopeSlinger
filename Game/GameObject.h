@@ -1,10 +1,12 @@
 #pragma once
 #include "Transform.h"
-#include <SDL.h>
+#include "Sprite.h"
 
 class GameObject
 {
+public:
 	Transform transform;
-	SDL_Texture* texture;
+	Sprite* sprite;
 	GameObject* parent = NULL;
+	void Draw();
 };

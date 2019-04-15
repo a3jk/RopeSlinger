@@ -17,7 +17,7 @@ void Event::PollEvent()
 		switch (event.type)
 		{
 		case SDL_QUIT:
-			isClosed = true;
+			isRunning = false;
 			break;
 		case SDL_KEYDOWN:
 			break;
@@ -36,7 +36,7 @@ Vector2 Event::GetMousePos()
 	return mouse;
 }
 
-int Event::IsClosed()
+int Event::IsRunning()
 {
-	return isClosed;
+	return isRunning;
 }

@@ -3,11 +3,19 @@
 
 int main(int argc, char* argv[])
 {
-	Window window("mitt spel", 500, 500);
+	Window window("My Game", 500, 500);
 
-	while (!window.IsClosed())
+	if (window.Init())
 	{
-		window.PollEvents();
+		while (window.IsRunning())
+		{
+			window.Update();
+		}
 	}
+	else
+	{
+		std::cerr << "Initialization failed with SDL error code: " << SDL_Error;
+	}
+
 	return 0;
 }
