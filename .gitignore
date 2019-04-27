@@ -28,8 +28,6 @@
 *.exe
 *.out
 *.app
-*.vcxproj
-*.vcxproj.filters
 
 # Folders
 /.vs
