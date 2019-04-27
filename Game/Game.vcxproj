@@ -137,6 +137,7 @@
     <ClInclude Include="GameState.h" />
     <ClInclude Include="LoadingState.h" />
     <ClInclude Include="MenuState.h" />
+    <ClInclude Include="Observer.h" />
     <ClInclude Include="State.h" />
     <ClInclude Include="Utilities.h" />
     <ClInclude Include="Sprite.h" />
